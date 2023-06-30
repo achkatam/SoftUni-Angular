@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersListItemComponent } from './users-list-item/users-list-item.component';
+import { UserService } from 'src/app/user.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { UsersListItemComponent } from './users-list-item/users-list-item.compon
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

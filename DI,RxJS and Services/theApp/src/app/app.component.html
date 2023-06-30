@@ -1,2 +1,9 @@
-<h3>{{title}} works!</h3>
-<app-users-list [users]="users"/>
+<h3>{{title}} works!</h3> 
+
+<div>
+  <input #inputName type="text" placeholder="name">
+  <input #inputAge type="text" placeholder="age">
+  <button (click)="setUser(inputName, inputAge)">Add new user</button>
+</div>
+
+<app-users-list [users]="appUsers" />

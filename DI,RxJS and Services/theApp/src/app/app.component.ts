@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
-import { User } from './type/User';
- 
+import { User } from './types/User';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
   title = 'theApp';
+  appUsers: User[] = []
 
-  users: User[]  = [
-    {name: 'John Doe', age: 30},
-    {name: 'Jane Doe', age: 25},
-    {name: 'Jim Doe', age: 20},
-    {name: 'Josh Doe', age: 15}
-  ]
+  constructor(public userService: UserService) {
+    this.appUsers = this.userService.users;
+  }
+
+  setUser(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
+    this.userService.addUser(inputName, inputAge);
+    this.appUsers = this.userService.users;
+  }
 }
