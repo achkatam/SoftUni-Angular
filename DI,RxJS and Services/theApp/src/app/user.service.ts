@@ -1,35 +1,41 @@
 import { Injectable } from '@angular/core';
-import { User } from './types/User';
+import { User } from './types/JsonPlaceholderUser';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  users: User[] = [
-    { name: 'John Doe', age: 30 },
-    { name: 'Jane Doe', age: 25 },
-    { name: 'Jim Doe', age: 20 },
-    { name: 'Josh Doe', age: 15 },
-  ];
+  users: User[] = [];
 
-  constructor() {
-    setInterval(() => {
-      this.users.push({
-        name: 'New User',
-        age: 20,
-      });
-    }, 3000);
+  constructor(private httpClient: HttpClient) {
+    // setInterval(() => {
+    //   this.users.push({
+    //     name: 'New User',
+    //     age: 20,
+    //   });
+    // }, 3000);
   }
 
   addUser(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
-    const user = {
-      name: inputName.value,
-      age: parseInt(inputAge.value),
-    };
+    // const user = {
+    //   name: inputName.value,
+    //   age: parseInt(inputAge.value),
+    // };
 
-    this.users = [user, ...this.users];
+    // this.users = [user, ...this.users];
+
     // Clear the input fields
     inputName.value = '';
     inputAge.value = '';
+  }
+
+  getUsers() {
+    // // PROMISE
+    // return fetch('https://jsonplaceholder.typicode.com/users')
+    // .then((result) => result.json());
+
+    // OBSERVABLE
+   return this.httpClient.get<User[]>('https://jsonplaceholder.typicode.com/users')
   }
 }

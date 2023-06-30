@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
-import { User } from '../types/User';
+import { User } from '../types/JsonPlaceholderUser';
 
 @Component({
   selector: 'app-users-list',
@@ -12,9 +12,9 @@ export class UsersListComponent {
 
   constructor(private cd:ChangeDetectorRef) { }
  
-  ngOnChanges(){
-    console.log('invoked from ngOnChanges')
-  }
+  // ngOnChanges(){
+  //   console.log('invoked from ngOnChanges')
+  // }
 
   refresh(){
    this.cd.detectChanges(); 

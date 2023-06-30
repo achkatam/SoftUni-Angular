@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersListItemComponent } from './users-list-item/users-list-item.component';
 import { UserService } from 'src/app/user.service';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,8 @@ import { UserService } from 'src/app/user.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
