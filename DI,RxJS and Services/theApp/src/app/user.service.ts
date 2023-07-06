@@ -31,7 +31,7 @@ export class UserService {
   }
 
   getUsers() {
-    // // PROMISE
+    // PROMISE
     // return fetch('https://jsonplaceholder.typicode.com/users')
     // .then((result) => result.json());
 
